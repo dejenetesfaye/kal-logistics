@@ -17,7 +17,7 @@ const Map = () => {
   const hideModal = () => {
     setIsOpen(false)
   }
-  setTimeout(showModal, 300000)
+  setTimeout(showModal, 5000)
   return (
     <div className='map__container'>
       <BrowserView>
