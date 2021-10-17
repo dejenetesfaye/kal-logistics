@@ -1,15 +1,10 @@
 import React, { useState } from 'react'
-import L from 'leaflet'
-import { MapContainer, TileLayer, Popup } from 'react-leaflet'
-import { LatLngExpression } from 'leaflet'
 import Modal from 'react-bootstrap/Modal'
 import { BrowserView, MobileView } from 'react-device-detect'
 import Pic20 from '../img/Capture.PNG'
 import Pic22 from '../img/a.aphoto.jpg'
 import marker from '../img/eyob_adobespark.png'
 
-const position = [9.010117673156934, 38.76378520055942]
-const center = [9.010117673156934, 38.76378520055942]
 
 const Map = () => {
   //const defaultPosition: LatLngExpression = [48.864716, 2.349] // Paris position
