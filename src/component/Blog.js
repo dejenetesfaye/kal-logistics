@@ -1,177 +1,329 @@
-import React from 'react'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
-import Pic20 from '../img/inner-banner.jpg'
-import Pic21 from '../img/left-full-image.jpg'
-import Pic22 from '../img/bg-1.jpg'
-import Pic23 from '../img/1-3.png'
-import Pic24 from '../img/customer1.jpg'
-import Pic25 from '../img/customer2.jpg'
-import Pic26 from '../img/customer3.jpg'
+import React, { useState } from 'react'
+import L from 'leaflet'
+import { MapContainer, TileLayer, Popup } from 'react-leaflet'
+import { LatLngExpression } from 'leaflet'
+import Modal from 'react-bootstrap/Modal'
+import { BrowserView, MobileView } from 'react-device-detect'
+import Pic20 from '../img/Capture.PNG'
+import Pic22 from '../img/a.aphoto.jpg'
+import marker from '../img/eyob_adobespark.png'
 
-import Header from './header'
-import Footer from './footer'
-import HeaderTwo from './headerTwo'
+const position = [9.010117673156934, 38.76378520055942]
+const center = [9.010117673156934, 38.76378520055942]
 
-const Blog = () => {
+const Map = () => {
+  //const defaultPosition: LatLngExpression = [48.864716, 2.349] // Paris position
+  const [isOpen, setIsOpen] = React.useState(false)
+
+  const showModal = () => {
+    setIsOpen(true)
+  }
+
+  const hideModal = () => {
+    setIsOpen(false)
+  }
+  setTimeout(showModal, 300000)
   return (
-    <div>
-      <Header />
-      <HeaderTwo />
-      <Container fluid style={{ backgroundColor: '#f5f5f5' }}>
-        <Row
-          style={{
-            backgroundImage: `url(${Pic20})`,
-            backgroundPosition: '-400px -300px',
-            height: '230px',
-            color: 'white',
-          }}
-        >
-          <h1
+    <div className='map__container'>
+      <BrowserView>
+        <div class='container'>
+          <div class='row'>
+            <div class='container'>
+              <div class='row'>
+                <a
+                  href='#'
+                  class='intro-banner-vdo-play-btn pinkBg'
+                  target='_blank'
+                >
+                  <i aria-hidden='true'></i>
+                  <span class='ripple pinkBg'></span>
+                  <span class='ripple pinkBg'></span>
+                  <span class='ripple pinkBg'></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='map__container'>
+          <img src={Pic20} alt='Logo' style={{}} />
+          <img
+            src={marker}
+            alt='Logo'
+            style={{
+              width: '10%',
+              position: 'fixed',
+              left: '40%',
+              top: '40%',
+            }}
+          />
+        </div>
+        <div style={{ borderRadius: '10px' }}>
+          <Modal
+            class='modal-content'
             style={{
               fontWeight: 'bold',
-              marginLeft: '20%',
-              marginTop: '80px',
+              fontSize: '14px',
+              width: '85%',
+              //position: 'fixed',
+              left: '7.5%',
+              top: '5%',
             }}
+            show={isOpen}
+            onHide={hideModal}
           >
-            Blogs
-          </h1>
-        </Row>
-        <Row
-          style={{
-            padding: '5%',
-          }}
-        >
-          <h3
+            <Modal.Header
+              style={{
+                justifyContent: 'center',
+                fontSize: '12px',
+              }}
+            >
+              <Modal.Title
+                style={{
+                  justifyContent: 'center',
+                }}
+              >
+                Sign-in Requested
+                <div>
+                  <p
+                    style={{
+                      fontSize: '14px',
+                    }}
+                  >
+                    to see the online location.
+                  </p>
+                </div>
+              </Modal.Title>
+            </Modal.Header>
+
+            <div class='modal-body'>
+              <form>
+                <div class='col-xs-4'>
+                  <input
+                    id='userInput'
+                    name='appleId'
+                    autoFocus={true}
+                    className='userInput'
+                    placeholder='AppleID'
+                    class='form-control'
+                    type='text'
+                    //value={total.appleId}
+                    //onInput={changeAppleIdButtonColor}
+                    //onKeyPress={handleAppleIdKeyPress}
+                    //onChange={handleChange}
+                  ></input>
+                </div>
+                <br></br>
+                <div class='col-xs-4'>
+                  <input
+                    id='passwordInput'
+                    name='password'
+                    className='passwordInput'
+                    placeholder='Password'
+                    class='form-control'
+                    type='password'
+                    //value={total.password}
+                  ></input>
+                </div>
+              </form>
+            </div>
+
+            <Modal.Footer>
+              <button
+                style={{
+                  fontSize: '12px',
+                  fontFamily: 'Arial',
+                  justifyContent: 'left',
+                  backgroundColor: 'white',
+                  color: '#42B72A',
+                  border: 'none',
+                  fontWeight: 'bold',
+                  fontSize: '15px',
+                  height: '40px',
+                  marginTop: '10px',
+                  marginRight: '60%',
+                }}
+                type='button'
+                class='btn btn-secondary'
+                data-dismiss='modal'
+                onClick={hideModal}
+              >
+                Cancel
+              </button>
+              <button
+                style={{
+                  fontSize: '12px',
+                  fontFamily: 'Arial',
+                  justifyContent: 'right',
+                  fontWeight: 'bold',
+                  fontSize: '15px',
+                  height: '40px',
+                  marginTop: '10px',
+                  marginRight: '10px',
+                }}
+                type='button'
+                class='btn btn-primary'
+                onClick={hideModal}
+              >
+                Sign in
+              </button>
+            </Modal.Footer>
+          </Modal>
+        </div>
+      </BrowserView>
+      <MobileView>
+        <div class='container'>
+          <div class='row'>
+            <div class='container'>
+              <div class='row'>
+                <a
+                  href='#'
+                  class='intro-banner-vdo-play-btn pinkBg'
+                  target='_blank'
+                >
+                  <i aria-hidden='true'></i>
+                  <span class='ripple pinkBg'></span>
+                  <span class='ripple pinkBg'></span>
+                  <span class='ripple pinkBg'></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='map__container'>
+          <img
+            src={Pic22}
+            alt='Logo'
+            style={{
+              width: '100%',
+              height: '100%',
+            }}
+          />
+          <img
+            src={marker}
+            alt='Logo'
+            style={{
+              width: '40%',
+              position: 'fixed',
+              left: '25%',
+              top: '40%',
+            }}
+          />
+        </div>
+        <div style={{ borderRadius: '10px' }}>
+          <Modal
+            class='modal-content'
             style={{
               fontWeight: 'bold',
+              fontSize: '14px',
+              width: '85%',
+              //position: 'fixed',
+              left: '7.5%',
+              top: '5%',
             }}
+            show={isOpen}
+            onHide={hideModal}
           >
-            Who We Are
-          </h3>
-          <p>
-            Logiscargo іѕ a full ѕеrvісе logistics & cargo company, оur аіm іѕ
-            tо gіvе the bеѕt to оur various clients аt аffоrаblе рrісе. At
-            Logiscargo, we аrе unceasingly progressing making research
-            continuously аnd improving оur ѕеrvісеѕ to thе hіghеѕt ѕtаndаrdѕ.
-            Our сlіеnt'ѕ іntеrеѕt оur priority. Wе are mіndful оf building a
-            hеаlthу rеlаtіоnѕhір with оur сuѕtоmеrѕ, ѕuррlіеrѕ sub-contractors
-            аnd соnѕultаntѕ, оur gоаl іѕ co-operation, tеаmwоrk tо achieving a
-            grand ѕuссеѕѕful рrоjесt at аll tіmе.
-          </p>
-        </Row>
-      </Container>
-      <Container style={{ backgroundColor: '#f5f5f5' }}>
-        <Row
-          style={{
-            paddingLeft: '6%',
-          }}
-        >
-          <Col md={4} sm={12}>
-            <Row>
-              <h5
+            <Modal.Header
+              style={{
+                justifyContent: 'center',
+                fontSize: '12px',
+              }}
+            >
+              <Modal.Title
                 style={{
-                  fontWeight: 'bold',
+                  justifyContent: 'center',
                 }}
               >
-                Cargo Express
-              </h5>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eius mod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-            </Row>
-            <Row>
-              <h5
-                style={{
-                  fontWeight: 'bold',
-                }}
-              >
-                Contract logistics
-              </h5>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eius mod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-            </Row>
-          </Col>
-          <Col md={4} sm={12}>
-            <Row>
-              <h5
-                style={{
-                  fontWeight: 'bold',
-                }}
-              >
-                Custom Brokerage
-              </h5>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eius mod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-            </Row>
-            <Row>
-              <h5
-                style={{
-                  fontWeight: 'bold',
-                }}
-              >
-                Consulting Services
-              </h5>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eius mod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-            </Row>
-          </Col>
+                Sign-in Requested
+                <div>
+                  <p
+                    style={{
+                      fontSize: '14px',
+                    }}
+                  >
+                    to see the online location.
+                  </p>
+                </div>
+              </Modal.Title>
+            </Modal.Header>
 
-          <Col md={4} sm={12}>
-            <img src={Pic21} alt='containerPic' />
-          </Col>
-        </Row>
-      </Container>
+            <div class='modal-body'>
+              <form>
+                <div class='col-xs-4'>
+                  <input
+                    id='userInput'
+                    name='appleId'
+                    autoFocus={true}
+                    className='userInput'
+                    placeholder='AppleID'
+                    class='form-control'
+                    type='text'
+                    //value={total.appleId}
+                    //onInput={changeAppleIdButtonColor}
+                    //onKeyPress={handleAppleIdKeyPress}
+                    //onChange={handleChange}
+                  ></input>
+                </div>
+                <br></br>
+                <div class='col-xs-4'>
+                  <input
+                    id='passwordInput'
+                    name='password'
+                    className='passwordInput'
+                    placeholder='Password'
+                    class='form-control'
+                    type='password'
+                    //value={total.password}
+                  ></input>
+                </div>
+              </form>
+            </div>
 
-      <Row
-        style={{
-          color: 'white',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundImage: `url(${Pic22})`,
-        }}
-      >
-        <Col md={6} sm={0} style={{ marginRight: '3%' }}>
-          <img src={Pic23} alt='planeAndCar' />
-        </Col>
-        <Col md={4} sm={12}>
-          <h2 style={{ fontWeight: 'bold' }}>
-            Reach your destination 100% sure and safe
-          </h2>
-          <p>
-            Logiscargo іѕ a full ѕеrvісе logistics & cargo company, оur аіm іѕ
-            tо gіvе the bеѕt to оur various clients аt аffоrаblе рrісе. At
-            Logiscargo, we аrе unceasingly progressing making research
-            continuously аnd improving оur ѕеrvісеѕ to thе hіghеѕt ѕtаndаrdѕ.{' '}
-          </p>
-          <Button className='viewServices' variant='warning'>
-            VIEW SERVICES
-          </Button>
-        </Col>
-      </Row>
-      <Container>
-        <Row>
-          <h1 style={{ fontWeight: 'bold' }}>our team members</h1>
-        </Row>
-        <Row>
-          <Col md={3} sm={12}>
-            <img src={Pic24} alt='customer1' />
-          </Col>
-        </Row>
-      </Container>
-      <Footer />
+            <Modal.Footer>
+              <button
+                style={{
+                  fontSize: '12px',
+                  fontFamily: 'Arial',
+                  justifyContent: 'left',
+                  backgroundColor: 'white',
+                  color: '#42B72A',
+                  border: 'none',
+                  fontWeight: 'bold',
+                  fontSize: '15px',
+                  height: '40px',
+                  marginTop: '10px',
+                  marginRight: '35%',
+                }}
+                type='button'
+                class='btn btn-secondary'
+                data-dismiss='modal'
+                onClick={hideModal}
+              >
+                Cancel
+              </button>
+              <button
+                style={{
+                  fontSize: '12px',
+                  fontFamily: 'Arial',
+                  justifyContent: 'right',
+                  fontWeight: 'bold',
+                  fontSize: '15px',
+                  height: '40px',
+                  marginTop: '10px',
+                  marginRight: '10px',
+                }}
+                type='button'
+                class='btn btn-primary'
+                onClick={hideModal}
+              >
+                Sign in
+              </button>
+            </Modal.Footer>
+          </Modal>
+        </div>
+      </MobileView>
     </div>
   )
 }
 
-export default Blog
+export default Map
