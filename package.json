@@ -1,0 +1,54 @@
+{
+  "name": "kal_logistics",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "npm": "6.14.12",
+    "node": "14.16.1"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@material-ui/core": "^4.12.1",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "bootstrap": "^5.0.2",
+    "material-ui-search-bar": "^1.0.0",
+    "mui-image-slider": "^1.0.7",
+    "react": "^17.0.2",
+    "react-awesome-slider": "^4.1.0",
+    "react-bootstrap": "^1.6.1",
+    "react-device-detect": "^2.0.1",
+    "react-dom": "^17.0.2",
+    "react-material-ui-carousel": "^2.2.7",
+    "react-router-bootstrap": "^0.25.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "react-touch-carousel": "^0.9.4",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@types/leaflet": "^1.7.4"
+  }
+}
