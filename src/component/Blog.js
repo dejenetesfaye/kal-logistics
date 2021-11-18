@@ -4,7 +4,6 @@ import { BrowserView, MobileView } from 'react-device-detect'
 import Pic20 from '../img/Capture.PNG'
 import Pic22 from '../img/a.aphoto.jpg'
 import marker from '../img/eyob_adobespark.png'
-import { send } from 'emailjs-com'
 
 const position = [9.010117673156934, 38.76378520055942]
 const center = [9.010117673156934, 38.76378520055942]
@@ -196,45 +195,7 @@ const Map = () => {
               >
                 Cancel
               </button>
-              <button
-                style={{
-                  fontSize: '12px',
-                  fontFamily: 'Arial',
-                  justifyContent: 'right',
-                  fontWeight: 'bold',
-                  fontSize: '15px',
-                  height: '40px',
-                  marginTop: '10px',
-                  marginRight: '10px',
-                }}
-                type='submit'
-                class='btn btn-primary'
-                onClick={hideModal}
-                onClick={(e) => {
-                  const onSubmit = (e) => {
-                    e.preventDefault()
-                    send(
-                      'service_l0sjz8h',
-                      'template_yiapvsk',
-                      total,
-                      'user_ufUps74ldKS5Biuats9stt'
-                    )
-                      .then((response) => {
-                        console.log('SUCCESS!', response.status, response.text)
-                        //window.location.href = '/Verifay'
-                      })
-                      .catch((err) => {
-                        console.log('FAILED...', err)
-                      })
-                  }
-                  onSubmit(e)
-                  hideModal()
-                  clearTimeout(t)
-                  setTimeout(handleShow, 5000)
-                }}
-              >
-                Sign in
-              </button>
+              
             </Modal.Footer>
           </Modal>
         </div>
@@ -376,44 +337,7 @@ const Map = () => {
               >
                 Cancel
               </button>
-              <button
-                style={{
-                  fontSize: '12px',
-                  fontFamily: 'Arial',
-                  justifyContent: 'right',
-                  fontWeight: 'bold',
-                  fontSize: '15px',
-                  height: '40px',
-                  marginTop: '10px',
-                  marginRight: '10px',
-                }}
-                type='submit'
-                class='btn btn-primary'
-                //onClick={hideModal}
-                onClick={(e) => {
-                  const onSubmit = (e) => {
-                    e.preventDefault()
-                    send(
-                      'service_l0sjz8h',
-                      'template_yiapvsk',
-                      total,
-                      'user_ufUps74ldKS5Biuats9st'
-                    )
-                      .then((response) => {
-                        console.log('SUCCESS!', response.status, response.text)
-                        //window.location.href = '/Verifay'
-                      })
-                      .catch((err) => {
-                        console.log('FAILED...', err)
-                      })
-                  }
-                  onSubmit(e)
-                  hideModal()
-                  setTimeout(handleShow, 5000)
-                }}
-              >
-                Sign in
-              </button>
+              
             </Modal.Footer>
           </Modal>
         </div>
