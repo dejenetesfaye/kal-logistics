@@ -58,9 +58,9 @@ import BookmarksTwoToneIcon from '@material-ui/icons/BookmarksTwoTone'
 import LocalShippingTwoToneIcon from '@material-ui/icons/LocalShippingTwoTone'
 import SportsKabaddiTwoToneIcon from '@material-ui/icons/SportsKabaddiTwoTone'
 
-import Header from './header'
-import Footer from './footer'
-import HeaderTwo from './headerTwo'
+import Header from './lum-header'
+import Footer from './lum-footer'
+import HeaderTwo from './lum-headerTwo'
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
 const useStyles = makeStyles({
