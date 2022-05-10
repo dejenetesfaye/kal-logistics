@@ -1,5 +1,5 @@
 import './App.css'
-import Homepage from './component/homePage'
+import Homepage from './component/lum-homePage'
 
 function App() {
   return (
